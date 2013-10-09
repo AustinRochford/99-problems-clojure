@@ -62,3 +62,9 @@
 
 (deftest palindrome?-test-false
     (is (not (palindrome? '(1 2 3 2)))))
+
+(deftest flatten'-test
+    (is (= '(1 2 3) (flatten' '((1) (2 (3)))))))
+
+(deftest flatten'-test-flat
+    (is (= '(1 2 3) (flatten' '(1 2 3)))))
