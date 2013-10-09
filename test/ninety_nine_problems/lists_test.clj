@@ -50,3 +50,15 @@
 
 (deftest reverse'-test-empty
     (is (empty? (reverse' '()))))
+
+(deftest palindrome?-test
+    (is (palindrome? '(1 2 1))))
+
+(deftest palindrome?-test-long
+    (is (palindrome? '(1 2 1 3 4 3 1 2 1))))
+
+(deftest palindrome?-test-empty
+    (is (palindrome? '())))
+
+(deftest palindrome?-test-false
+    (is (not (palindrome? '(1 2 3 2)))))

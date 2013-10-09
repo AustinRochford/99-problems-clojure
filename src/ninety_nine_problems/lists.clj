@@ -39,3 +39,7 @@
     (if (empty? coll)
         '()
         (reduce conj '() coll)))
+
+(defn palindrome?
+    [coll]
+    (= coll (reverse' coll)))
