@@ -59,3 +59,8 @@
         (partial partition-by identity)))
 
 (def pack (partial partition-by identity))
+
+(def encode 
+    (comp
+        (partial map #(vector (count %) (first %)))
+        pack))
