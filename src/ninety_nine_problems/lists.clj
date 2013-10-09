@@ -20,3 +20,11 @@
         (if (empty? tail)
             head
             (recur (conj tail snd))))))
+
+(defn element-at
+    [coll k]
+    (if (empty? coll)
+        nil
+    (if (= k 1)
+        (first coll)
+        (recur (rest coll) (dec k)))))

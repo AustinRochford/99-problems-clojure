@@ -13,7 +13,22 @@
     (is (= 2 (but-last '(1 2 3)))))
 
 (deftest but-last-test-empty
-    (is (= nil (but-last '()))))
+    (is (nil? (but-last '()))))
 
 (deftest but-last-test-single
-    (is (= nil (but-last '(1)))))
+    (is (nil? (but-last '(1)))))
+
+(deftest element-at-test-one
+    (is (= 1 (element-at '(1 2 3) 1))))
+
+(deftest element-at-test-two
+    (is (= 2 (element-at '(1 2 3) 2))))
+
+(deftest element-at-test-three
+    (is (= 3 (element-at '(1 2 3) 3))))
+
+(deftest element-at-test-empty
+    (is (nil? (element-at '() 1))))
+
+(deftest element-at-test-too-small
+    (is (nil? (element-at '(1 2) 3))))
