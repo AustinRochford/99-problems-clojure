@@ -142,3 +142,15 @@
 (defn range'
     [m n]
     (take (inc (- n m)) (iterate inc m)))
+
+(defn combinations
+    [k coll]
+    (if (zero? k)
+        '(())
+    (if (empty? coll)
+        nil
+        (let
+            [[head & tail] coll
+            with-head (combinations (dec k) tail)
+            without-head (combinations k tail)]
+            (concat (map #(conj % head) with-head) without-head)))))

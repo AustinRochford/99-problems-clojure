@@ -224,3 +224,12 @@
 
 (deftest range'-test-single
     (is (= '(3) (range' 3 3))))
+
+(deftest combinations-test
+    (is (= '((1 2) (1 3) (2 3)) (combinations 2 '(1 2 3)))))
+
+(deftest combinations-test-singles
+    (is (= '((1) (2) (3)) (combinations 1 '(1 2 3)))))
+
+(deftest combinations-test-all
+    (is (= '((1 2 3)) (combinations 3 '(1 2 3)))))
