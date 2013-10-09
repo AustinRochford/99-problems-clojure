@@ -84,3 +84,7 @@
 
 (def duplicate
     (partial mapcat (partial replicate 2)))
+
+(defn replicate'
+    [coll n]
+    (mapcat (partial replicate n) coll))

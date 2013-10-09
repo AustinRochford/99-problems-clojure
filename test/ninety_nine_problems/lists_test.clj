@@ -122,3 +122,15 @@
 
 (deftest duplicate-test-duplicate
     (is (= '(1 1 1 1) (duplicate '(1 1)))))
+
+(deftest replicate'-test
+    (is (= '(1 1 1 2 2 2 3 3 3) (replicate' '(1 2 3) 3))))
+
+(deftest replicate'-test-empty
+    (is (= '() (replicate' '() 2))))
+
+(deftest replicate'-test-zero
+    (is (= '() (replicate' '(1 2 3) 0))))
+
+(deftest replicate'-test-duplicate
+    (is (= '(1 1 1 1 1 1) (replicate' '(1 1) 3))))
