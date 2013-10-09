@@ -57,3 +57,5 @@
     (comp
         (partial map first)
         (partial partition-by identity)))
+
+(def pack (partial partition-by identity))

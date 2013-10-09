@@ -77,3 +77,12 @@
 
 (deftest compress-test-repeat
     (is (= '(1 2 1) (compress '(1 1 2 1 1)))))
+
+(deftest pack-test
+    (is (= '((1) (2 2) (3 3 3)) (pack '(1 2 2 3 3 3)))))
+
+(deftest pack-test-singles
+    (is (= '((1) (2) (3)) (pack '(1 2 3)))))
+
+(deftest pack-test-repeat
+    (is (= '((1 1) (2) (1 1)) (pack '(1 1 2 1 1)))))
