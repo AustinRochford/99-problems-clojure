@@ -68,3 +68,12 @@
 
 (deftest flatten'-test-flat
     (is (= '(1 2 3) (flatten' '(1 2 3)))))
+
+(deftest compress-test
+    (is (= '(1 2 3) (compress '(1 2 2 3 3 3)))))
+
+(deftest compress-test-compressed
+    (is (= '(1 2 3) (compress '(1 2 3)))))
+
+(deftest compress-test-repeat
+    (is (= '(1 2 1) (compress '(1 1 2 1 1)))))

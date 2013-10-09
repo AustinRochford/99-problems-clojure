@@ -52,3 +52,8 @@
             (if (seq? head)
                 (concat (flatten' head) (flatten' tail))
                 (conj (flatten' tail) head)))))
+
+(def compress
+    (comp
+        (partial map first)
+        (partial partition-by identity)))
