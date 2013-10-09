@@ -114,3 +114,13 @@
     (->> coll
         (drop (dec m))
         (take (inc (- n m)))))
+
+(defn rotate
+    [coll n]
+    (let [length (count coll)]
+        (if (neg? n)
+            (recur coll (+ length n))
+        (if (> n length)
+            (recur coll (mod n length))
+            (let [[before after] (split coll n)]
+                (concat after before))))))

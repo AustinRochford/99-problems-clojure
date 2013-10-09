@@ -176,3 +176,18 @@
 
 (deftest slice-test-too-big
     (is (empty? (slice '(1 2 3 4 5) 6 7))))
+
+(deftest rotate-test
+    (is (= '(4 5 6 7 8 1 2 3) (rotate '(1 2 3 4 5 6 7 8) 3))))
+
+(deftest rotate-test-zero
+    (is (= '(1 2 3) (rotate '(1 2 3) 0))))
+
+(deftest rotate-test-length
+    (is (= '(1 2 3) (rotate '(1 2 3) 3))))
+
+(deftest rotate-test-negative
+    (is (= '(7 8 1 2 3 4 5 6) (rotate '(1 2 3 4 5 6 7 8) -2))))
+
+(deftest rotate-test-more-than-length
+    (is (= '(2 3 1) (rotate '(1 2 3) 4))))
