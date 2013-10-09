@@ -88,3 +88,12 @@
 (defn replicate'
     [coll n]
     (mapcat (partial replicate n) coll))
+
+(defn drop-every
+    [coll n]
+    (mapcat 
+        (fn [part]
+            (if (= (count part) n)
+                (butlast part)
+                part))
+        (partition-all n coll)))

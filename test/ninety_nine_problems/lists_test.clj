@@ -134,3 +134,12 @@
 
 (deftest replicate'-test-duplicate
     (is (= '(1 1 1 1 1 1) (replicate' '(1 1) 3))))
+
+(deftest drop-every-test
+    (is (= '(1 2 4 5) (drop-every '(1 2 3 4 5 6) 3))))
+
+(deftest drop-every-uneven
+    (is (= '(1 2 4 5 7) (drop-every '(1 2 3 4 5 6 7) 3))))
+
+(deftest drop-every-test-one
+    (is (= '() (drop-every '(1 2 3) 1))))
