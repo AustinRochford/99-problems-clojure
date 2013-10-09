@@ -10,3 +10,13 @@
         (if (empty? tail)
             head
             (recur tail))))
+
+(defn but-last
+    [coll]
+    (let
+        [[head snd & tail] coll]
+        (if (nil? snd)
+            nil
+        (if (empty? tail)
+            head
+            (recur (conj tail snd))))))

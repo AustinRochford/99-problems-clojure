@@ -8,3 +8,12 @@
 
 (deftest last'-test-empty
     (is (nil? (last' '()))))
+
+(deftest but-last-test
+    (is (= 2 (but-last '(1 2 3)))))
+
+(deftest but-last-test-empty
+    (is (= nil (but-last '()))))
+
+(deftest but-last-test-single
+    (is (= nil (but-last '(1)))))
