@@ -108,3 +108,9 @@
             [[head & tail]  coll
             [before after]  (split tail (dec n))]
             [(conj before head) after]))))
+
+(defn slice
+    [coll m n]
+    (->> coll
+        (drop (dec m))
+        (take (inc (- n m)))))

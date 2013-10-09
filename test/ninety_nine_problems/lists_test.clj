@@ -142,7 +142,7 @@
     (is (= '(1 2 4 5 7) (drop-every '(1 2 3 4 5 6 7) 3))))
 
 (deftest drop-every-test-one
-    (is (= '() (drop-every '(1 2 3) 1))))
+    (is (empty? (drop-every '(1 2 3) 1))))
 
 (deftest split-test
     (is (= ['(1) '(2 3)] (split '(1 2 3) 1))))
@@ -158,3 +158,21 @@
 
 (deftest split-test-too-long
     (is (= ['(1 2 3) '()] (split '(1 2 3) 4))))
+
+(deftest slice-test
+    (is (= '(2 3 4) (slice '(1 2 3 4 5) 2 4))))
+
+(deftest slice-test-first
+    (is (= '(1 2 3) (slice '(1 2 3 4 5) 1 3))))
+
+(deftest slice-test-last
+    (is (= '(4 5) (slice '(1 2 3 4 5) 4 5))))
+
+(deftest slice-test-single
+    (is (= '(3) (slice '(1 2 3 4 5) 3 3))))
+
+(deftest slice-test-too-long
+    (is (= '(3 4 5) (slice '(1 2 3 4 5) 3 6))))
+
+(deftest slice-test-too-big
+    (is (empty? (slice '(1 2 3 4 5) 6 7))))
