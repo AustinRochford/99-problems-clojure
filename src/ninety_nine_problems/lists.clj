@@ -129,3 +129,12 @@
     [coll n]
     (let [[before [_ & after]] (split coll (dec n))]
         (concat before after)))
+
+(defn insert-at
+    [x coll n]
+    (let [[before after] (split coll (dec n))]
+        (if (empty? after)
+            (if (= (count before) (dec n))
+                (concat before (replicate 1 x))
+                before)
+            (concat before (conj after x)))))

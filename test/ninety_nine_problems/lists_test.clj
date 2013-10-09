@@ -203,3 +203,18 @@
 
 (deftest remove-at-too-big
     (is (= '(1 2 3) (remove-at '(1 2 3) 4))))
+
+(deftest insert-at-test
+    (is (= '(1 2 3) (insert-at 2 '(1 3) 2))))
+
+(deftest insert-at-test-first
+    (is (= '(1 2 3) (insert-at 1 '(2 3) 1))))
+
+(deftest insert-at-test-last
+    (is (= '(1 2 3) (insert-at 3 '(1 2) 3))))
+
+(deftest insert-at-test-empty
+    (is (= '(1) (insert-at 1 '() 1))))
+
+(deftest insert-at-test-too-big
+    (is (= '(1 2 3) (insert-at 5 '(1 2 3) 5))))
