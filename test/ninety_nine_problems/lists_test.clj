@@ -218,3 +218,9 @@
 
 (deftest insert-at-test-too-big
     (is (= '(1 2 3) (insert-at 5 '(1 2 3) 5))))
+
+(deftest range'-test
+    (is (= '(2 3 4) (range' 2 4))))
+
+(deftest range'-test-single
+    (is (= '(3) (range' 3 3))))

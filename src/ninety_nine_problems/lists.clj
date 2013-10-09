@@ -138,3 +138,7 @@
                 (concat before (replicate 1 x))
                 before)
             (concat before (conj after x)))))
+
+(defn range'
+    [m n]
+    (take (inc (- n m)) (iterate inc m)))
