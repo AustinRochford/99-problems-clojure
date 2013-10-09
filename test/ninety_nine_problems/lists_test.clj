@@ -44,3 +44,9 @@
 
 (deftest length-test-large
     (is (= 100 (length (range 100)))))
+
+(deftest reverse'-test
+    (is (= '(3 2 1) (reverse' '(1 2 3)))))
+
+(deftest reverse'-test-empty
+    (is (empty? (reverse' '()))))

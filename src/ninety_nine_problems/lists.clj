@@ -33,3 +33,9 @@
     (comp
         (partial reduce +)
         (partial map (constantly 1))))
+
+(defn reverse'
+    [coll]
+    (if (empty? coll)
+        '()
+        (reduce conj '() coll)))
