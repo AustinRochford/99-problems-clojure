@@ -191,3 +191,15 @@
 
 (deftest rotate-test-more-than-length
     (is (= '(2 3 1) (rotate '(1 2 3) 4))))
+
+(deftest remove-at-test
+    (is (= '(1 3) (remove-at '(1 2 3) 2))))
+
+(deftest remove-at-first
+    (is (= '(2 3) (remove-at '(1 2 3) 1))))
+
+(deftest remove-at-last
+    (is (= '(1 2) (remove-at '(1 2 3) 3))))
+
+(deftest remove-at-too-big
+    (is (= '(1 2 3) (remove-at '(1 2 3) 4))))

@@ -124,3 +124,8 @@
             (recur coll (mod n length))
             (let [[before after] (split coll n)]
                 (concat after before))))))
+
+(defn remove-at
+    [coll n]
+    (let [[before [_ & after]] (split coll (dec n))]
+        (concat before after)))
