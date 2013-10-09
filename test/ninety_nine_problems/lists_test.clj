@@ -32,3 +32,15 @@
 
 (deftest element-at-test-too-small
     (is (nil? (element-at '(1 2) 3))))
+
+(deftest length-test-one
+    (is (= 1 (length '(1)))))
+
+(deftest length-test-two
+    (is (= 2 (length '(1 2)))))
+
+(deftest length-test-empty
+    (is (zero? (length '()))))
+
+(deftest length-test-large
+    (is (= 100 (length (range 100)))))

@@ -28,3 +28,8 @@
     (if (= k 1)
         (first coll)
         (recur (rest coll) (dec k)))))
+
+(def length
+    (comp
+        (partial reduce +)
+        (partial map (constantly 1))))
