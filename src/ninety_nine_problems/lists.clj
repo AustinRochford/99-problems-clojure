@@ -81,3 +81,6 @@
             (if (vector? encoded)
                 (apply replicate encoded)
                 (replicate 1 encoded)))))
+
+(def duplicate
+    (partial mapcat (partial replicate 2)))

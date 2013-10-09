@@ -113,3 +113,12 @@
 
 (deftest decode-test-repeat
     (is (= '(1 1 2 1 1) (decode '([2 1] 2 [2 1])))))
+
+(deftest duplicate-test
+    (is (= '(1 1 2 2 3 3) (duplicate '(1 2 3)))))
+
+(deftest duplicate-test-empty
+    (is (= '() (duplicate '()))))
+
+(deftest duplicate-test-duplicate
+    (is (= '(1 1 1 1) (duplicate '(1 1)))))
