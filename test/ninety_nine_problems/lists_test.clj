@@ -143,3 +143,18 @@
 
 (deftest drop-every-test-one
     (is (= '() (drop-every '(1 2 3) 1))))
+
+(deftest split-test
+    (is (= ['(1) '(2 3)] (split '(1 2 3) 1))))
+
+(deftest split-test-two
+    (is (= ['(1 2) '(3)] (split '(1 2 3) 2))))
+
+(deftest split-test-three
+    (is (= ['(1 2 3) '()] (split '(1 2 3) 3))))
+
+(deftest split-test-zero
+    (is (= ['() '(1 2 3)] (split '(1 2 3) 0))))
+
+(deftest split-test-too-long
+    (is (= ['(1 2 3) '()] (split '(1 2 3) 4))))

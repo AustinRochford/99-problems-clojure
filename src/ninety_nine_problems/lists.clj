@@ -97,3 +97,14 @@
                 (butlast part)
                 part))
         (partition-all n coll)))
+
+(defn split
+    [coll n]
+    (if (empty? coll)
+        ['() '()]
+    (if (zero? n)
+        ['() coll]
+        (let 
+            [[head & tail]  coll
+            [before after]  (split tail (dec n))]
+            [(conj before head) after]))))
