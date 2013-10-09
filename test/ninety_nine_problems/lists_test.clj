@@ -104,3 +104,12 @@
 
 (deftest ecnode'-test-repeat
     (is (= '([2 1] 2 [2 1]) (encode' '(1 1 2 1 1)))))
+
+(deftest decode-test
+    (is (= '(1 2 2 3 3 3) (decode '(1 [2 2] [3 3])))))
+
+(deftest decode-test-singles
+    (is (= '(1 2 3) (decode '(1 2 3)))))
+
+(deftest decode-test-repeat
+    (is (= '(1 1 2 1 1) (decode '([2 1] 2 [2 1])))))

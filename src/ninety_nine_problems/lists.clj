@@ -74,3 +74,10 @@
                         head
                         [(count coll) head]))))
         pack))
+
+(def decode
+    (partial mapcat
+        (fn [encoded]
+            (if (vector? encoded)
+                (apply replicate encoded)
+                (replicate 1 encoded)))))
