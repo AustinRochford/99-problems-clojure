@@ -95,3 +95,12 @@
 
 (deftest encode-test-repeat
     (is (= '([2 1] [1 2] [2 1]) (encode '(1 1 2 1 1)))))
+
+(deftest encode'-test
+    (is (= '(1 [2 2] [3 3]) (encode' '(1 2 2 3 3 3)))))
+
+(deftest encode'-test-singles
+    (is (= '(1 2 3) (encode' '(1 2 3)))))
+
+(deftest ecnode'-test-repeat
+    (is (= '([2 1] 2 [2 1]) (encode' '(1 1 2 1 1)))))

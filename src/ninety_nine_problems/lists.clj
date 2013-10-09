@@ -64,3 +64,13 @@
     (comp
         (partial map #(vector (count %) (first %)))
         pack))
+
+(def encode'
+    (comp
+        (partial map
+            (fn [coll]
+                (let [[head & tail] coll]
+                    (if (empty? tail)
+                        head
+                        [(count coll) head]))))
+        pack))
