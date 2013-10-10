@@ -154,3 +154,23 @@
             with-head (combinations (dec k) tail)
             without-head (combinations k tail)]
             (concat (map #(conj % head) with-head) without-head)))))
+
+(defn elem?
+    [x coll]
+    (some #{x} coll))
+
+(defn diff
+    [coll coll']
+    (filter #(not (elem? % coll')) coll))
+
+(defn group
+    [coll groups]
+    (if (empty? groups)
+        '(())
+        (let
+            [[n & ns] groups
+            heads (combinations n coll)]
+            (mapcat
+                (fn [head]
+                    (map #(conj % head) (group (diff coll head) ns)))
+                heads))))

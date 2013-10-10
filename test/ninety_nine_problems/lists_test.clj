@@ -233,3 +233,27 @@
 
 (deftest combinations-test-all
     (is (= '((1 2 3)) (combinations 3 '(1 2 3)))))
+
+(deftest elem?-test-true
+    (is (elem? 1 '(1 2 3))))
+
+(deftest elem?-test-false
+    (is (not (elem? 4 '(1 2 3)))))
+
+(deftest diff-test
+    (is (= '(1 2) (diff '(1 2 3 4) '(3 4)))))
+
+(deftest diff-test-not-subset
+    (is (= '(2 3 4) (diff '(1 2 3 4) '(0 1)))))
+
+(deftest diff-test-disjoint
+    (is (= '(1 2 3) (diff '(1 2 3) '(0 4)))))
+
+(deftest group-test
+    (is (= '(((1) (2 3)) ((2) (1 3)) ((3) (1 2))) (group '(1 2 3) '(1 2)))))
+
+(deftest group-test-fewer
+    (is (= '(((1) (2)) ((1) (3)) ((2) (1)) ((2) (3)) ((3) (1)) ((3) (2))) (group '(1 2 3) '(1 1)))))
+
+(deftest group-test-all
+    (is (= '(((1 2 3))) (group '(1 2 3) '(3)))))
