@@ -20,3 +20,11 @@
         (range 2)
         (filter #(divides? % n))
         (empty?)))
+
+(defn gcd
+    [m n]
+    (if (< m n)
+        (recur n m)
+    (if (zero? n)
+        m
+        (recur n (mod m n)))))

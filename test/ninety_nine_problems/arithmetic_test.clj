@@ -11,3 +11,6 @@
 
 (deftest prime?-test
     (is (= '(true true false true false true) (map prime? '(2 3 4 5 6 7)))))
+
+(deftest gcd-test
+    (is (= '(1 2 12 1) (map gcd '(2 2 36 19) '(3 4 48 100)))))
