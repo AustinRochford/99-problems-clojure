@@ -74,3 +74,12 @@
 (defn primes
     [low high]
     (filter prime? (range low (inc high))))
+
+(defn goldbach
+    [n]
+    (->>
+        (quot n 2)
+        (primes 1)
+        (drop-while #(not (prime? (- n %))))
+        (first)
+        (#(vector % (- n %)))))

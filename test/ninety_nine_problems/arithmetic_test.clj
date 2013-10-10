@@ -50,3 +50,12 @@
 
 (deftest primes-test
     (is (= '(2 3 5 7) (primes 1 10))))
+
+(deftest goldbach-test-eight
+    (is (= [3 5] (goldbach 8))))
+
+(deftest golbach-test-twenty-eight
+    (is (= [5 23] (goldbach 28))))
+
+(deftest goldbach-test-fifty-two
+    (is (= [5 47] (goldbach 52))))
