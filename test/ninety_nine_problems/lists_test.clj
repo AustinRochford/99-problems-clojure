@@ -257,3 +257,6 @@
 
 (deftest group-test-all
     (is (= '(((1 2 3))) (group '(1 2 3) '(3)))))
+
+(deftest sort-by-length-test
+    (is (= '((1) (2 2) (3 3 3)) (sort-by-length '((2 2) (1) (3 3 3))))))

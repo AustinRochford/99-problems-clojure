@@ -174,3 +174,6 @@
                 (fn [head]
                     (map #(conj % head) (group (diff coll head) ns)))
                 heads))))
+
+(def sort-by-length
+    (partial sort-by count))
