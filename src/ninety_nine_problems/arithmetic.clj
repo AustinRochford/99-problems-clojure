@@ -83,3 +83,10 @@
         (drop-while #(not (prime? (- n %))))
         (first)
         (#(vector % (- n %)))))
+
+(defn goldbach-list
+    [low high]
+    (->>
+        (range low (inc high))
+        (filter even?)
+        (map goldbach)))

@@ -59,3 +59,6 @@
 
 (deftest goldbach-test-fifty-two
     (is (= [5 47] (goldbach 52))))
+
+(deftest goldbach-list-test
+    (is (= '([3 7] [5 7] [3 11] [3 13] [5 13] [3 17]) (goldbach-list 9 20))))
