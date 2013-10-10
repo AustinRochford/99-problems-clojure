@@ -177,3 +177,8 @@
 
 (def sort-by-length
     (partial sort-by count))
+
+(defn sort-by-length-frequency
+    [coll]
+    (let [freqs (frequencies (map count coll))]
+        (sort-by #(freqs (count %)) coll)))

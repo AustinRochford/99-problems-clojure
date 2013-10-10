@@ -260,3 +260,9 @@
 
 (deftest sort-by-length-test
     (is (= '((1) (2 2) (3 3 3)) (sort-by-length '((2 2) (1) (3 3 3))))))
+
+(deftest sort-by-length-frequency-test
+    (is (= '((1) (2 2) (2 2)) (sort-by-length-frequency '((2 2) (1) (2 2))))))
+
+(deftest sort-by-lenth-frequency-test-two
+    (is (= '((3 3 3) (3 3 3) (2 2) (2 2) (2 2) (1) (1) (1) (1)) (sort-by-length-frequency '((2 2) (3 3 3) (1) (2 2) (1) (3 3 3) (1) (1) (2 2))))))
