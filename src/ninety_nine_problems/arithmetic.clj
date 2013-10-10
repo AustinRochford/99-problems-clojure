@@ -28,3 +28,6 @@
     (if (zero? n)
         m
         (recur n (mod m n)))))
+
+(def coprime?
+    (comp (partial = 1) gcd))

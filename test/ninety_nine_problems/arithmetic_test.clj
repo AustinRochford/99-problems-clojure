@@ -14,3 +14,6 @@
 
 (deftest gcd-test
     (is (= '(1 2 12 1) (map gcd '(2 2 36 19) '(3 4 48 100)))))
+
+(deftest coprime?-test
+    (is (= '(true false) (map coprime? '(2 6) '(3 9)))))
