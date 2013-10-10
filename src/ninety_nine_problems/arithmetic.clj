@@ -15,12 +15,14 @@
 
 (defn prime?
     [n]
-    (->>
-        (sqrt n)
-        (inc)
-        (range 2)
-        (filter #(divides? % n))
-        (empty?)))
+    (if (= 1 n)
+        false
+        (->>
+            (sqrt n)
+            (inc)
+            (range 2)
+            (filter #(divides? % n))
+            (empty?))))
 
 (defn gcd
     [m n]
@@ -68,3 +70,7 @@
         (prime-factorization n)
         (map (fn [[p k]] (int (* (dec p) (pow p (dec k))))))
         (reduce *)))
+
+(defn primes
+    [low high]
+    (filter prime? (range low (inc high))))

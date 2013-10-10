@@ -10,7 +10,7 @@
     (is (= '(true false true false) (map divides? '(2 2 3 3) '(2 3 6 7)))))
 
 (deftest prime?-test
-    (is (= '(true true false true false true) (map prime? '(2 3 4 5 6 7)))))
+    (is (= '(false true true false true false true) (map prime? '(1 2 3 4 5 6 7)))))
 
 (deftest gcd-test
     (is (= '(1 2 12 1) (map gcd '(2 2 36 19) '(3 4 48 100)))))
@@ -47,3 +47,6 @@
 
 (deftest totient'-test
     (is (= '(6 4 12) (map totient' '(9 10 13)))))
+
+(deftest primes-test
+    (is (= '(2 3 5 7) (primes 1 10))))
