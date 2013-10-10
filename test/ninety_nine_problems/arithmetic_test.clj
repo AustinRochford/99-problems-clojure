@@ -29,3 +29,18 @@
 
 (deftest prime-factors-sixty
     (is (= '(2 3 5) (prime-factors 60))))
+
+(deftest multiplicity-test
+    (is (= '(0 1 2 1 2) (map multiplicity '(2 2 2 3 4) '(3 2 4 12 32)))))
+
+(deftest prime-factorization-test-six
+    (is (= '([2 1] [3 1]) (prime-factorization 6))))
+
+(deftest prime-factorization-seven
+    (is (= '([7 1]) (prime-factorization 7))))
+
+(deftest prime-factorization-twenty-seven
+    (is (= '([3 3]) (prime-factorization 27))))
+
+(deftest prime-factorization-sixty
+    (is (= '([2 2] [3 1] [5 1]) (prime-factorization 60))))

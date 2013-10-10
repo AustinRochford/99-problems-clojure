@@ -1,7 +1,8 @@
 (ns ninety-nine-problems.arithmetic
     (:require
         [clojure.contrib.core :refer :all]
-        [clojure.contrib.math :refer [exact-integer-sqrt]])
+        [clojure.contrib.math :refer [exact-integer-sqrt]]
+        [clojure.contrib.generic.math-functions :refer [pow]])
     (:gen-class))
 
 (defn sqrt
@@ -45,3 +46,16 @@
         (inc)
         (range 2)
         (filter #(and (divides? % n) (prime? %)))))
+
+(defn multiplicity
+    [k n]
+    (->>
+        (range)
+        (drop-while #(divides? (pow k (inc %)) n))
+        (first)))
+
+(defn prime-factorization
+    [n]
+    (->>
+        (prime-factors n)
+        (map #(vector % (multiplicity % n)))))
