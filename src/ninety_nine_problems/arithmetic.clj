@@ -31,3 +31,10 @@
 
 (def coprime?
     (comp (partial = 1) gcd))
+
+(defn totient
+    [n]
+    (->> n
+        (range 1)
+        (filter (partial coprime? n))
+        (count)))

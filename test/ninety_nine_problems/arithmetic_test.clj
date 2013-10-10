@@ -17,3 +17,6 @@
 
 (deftest coprime?-test
     (is (= '(true false) (map coprime? '(2 6) '(3 9)))))
+
+(deftest totient-test
+    (is (= '(6 4 12) (map totient '(9 10 13)))))
