@@ -1,7 +1,7 @@
 (ns ninety-nine-problems.arithmetic
     (:require
         [clojure.contrib.core :refer :all]
-        [clojure.contrib.math :refer [exact-integer-sqrt]]
+        [clojure.contrib.math :refer [exact-integer-sqrt floor]]
         [clojure.contrib.generic.math-functions :refer [pow]])
     (:gen-class))
 
@@ -59,3 +59,12 @@
     (->>
         (prime-factors n)
         (map #(vector % (multiplicity % n)))))
+
+; Note that the problem statement is incorrect.
+; The terms should be multiplied, not added.
+(defn totient'
+    [n]
+    (->>
+        (prime-factorization n)
+        (map (fn [[p k]] (int (* (dec p) (pow p (dec k))))))
+        (reduce *)))

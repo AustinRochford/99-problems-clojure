@@ -44,3 +44,6 @@
 
 (deftest prime-factorization-sixty
     (is (= '([2 2] [3 1] [5 1]) (prime-factorization 60))))
+
+(deftest totient'-test
+    (is (= '(6 4 12) (map totient' '(9 10 13)))))
