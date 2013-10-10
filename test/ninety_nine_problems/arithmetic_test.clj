@@ -20,3 +20,12 @@
 
 (deftest totient-test
     (is (= '(6 4 12) (map totient '(9 10 13)))))
+
+(deftest prime-factors-test-six
+    (is (= '(2 3) (prime-factors 6))))
+
+(deftest prime-factors-seven
+    (is (= '(7) (prime-factors 7))))
+
+(deftest prime-factors-sixty
+    (is (= '(2 3 5) (prime-factors 60))))

@@ -38,3 +38,10 @@
         (range 1)
         (filter (partial coprime? n))
         (count)))
+
+(defn prime-factors
+    [n]
+    (->> n
+        (inc)
+        (range 2)
+        (filter #(and (divides? % n) (prime? %)))))
