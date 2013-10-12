@@ -95,3 +95,21 @@
 
 (deftest count-leaves-test-one-left-right
     (is (= 1 (count-leaves [1 [2 nil [3 nil nil]] nil]))))
+
+(deftest leaves-test-empty
+    (is (= '() (leaves nil))))
+
+(deftest leaves-test-leaf
+    (is (= '(1) (leaves [1 nil nil]))))
+
+(deftest leaves-test-one-left
+    (is (= '(2) (leaves [1 [2 nil nil] nil]))))
+
+(deftest leaves-test-one-right
+    (is (= '(2) (leaves [1 nil [2 nil nil]]))))
+
+(deftest leaves-test-three-two
+    (is (= '(2 3) (leaves [1 [2 nil nil] [3 nil nil]]))))
+
+(deftest leaves-test-one-left-right
+    (is (= '(3) (leaves [1 [2 nil [3 nil nil]] nil]))))

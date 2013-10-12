@@ -64,3 +64,14 @@
             (+
                 (count-leaves left)
                 (count-leaves right))))))
+
+(defn leaves
+    [tree]
+    (if (nil? tree)
+        '()
+        (let [[x left right] tree]
+            (if (leaf? tree)
+                `(~x)
+                (concat
+                    (leaves left)
+                    (leaves right))))))
