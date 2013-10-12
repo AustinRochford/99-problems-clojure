@@ -113,3 +113,21 @@
 
 (deftest leaves-test-one-left-right
     (is (= '(3) (leaves [1 [2 nil [3 nil nil]] nil]))))
+
+(deftest internals-test-empty
+    (is (= '() (internals nil))))
+
+(deftest internals-test-leaf
+    (is (= '() (internals [1 nil nil]))))
+
+(deftest internals-test-one-left
+    (is (= '(1) (internals [1 [2 nil nil] nil]))))
+
+(deftest internals-test-one-right
+    (is (= '(1) (internals [1 nil [2 nil nil]]))))
+
+(deftest internals-test-three-two
+    (is (= '(1) (internals [1 [2 nil nil] [3 nil nil]]))))
+
+(deftest internals-test-one-left-right
+    (is (= '(1 2) (internals [1 [2 nil [3 nil nil]] nil]))))

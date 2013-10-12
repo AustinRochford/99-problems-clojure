@@ -75,3 +75,14 @@
                 (concat
                     (leaves left)
                     (leaves right))))))
+
+(defn internals
+    [tree]
+    (if (or (nil? tree) (leaf? tree))
+        '()
+        (let [[x left right] tree]
+            (conj
+                (concat
+                    (internals left)
+                    (internals right))
+                x))))
