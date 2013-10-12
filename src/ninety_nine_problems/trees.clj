@@ -32,3 +32,15 @@
         (nil? tree)
         (let [[_ left right] tree]
             (same-tree? left right))))
+
+(defn bst-add
+    [tree x]
+    (if (nil? tree)
+        [x nil nil]
+        (let [[y left right] tree]
+            (if (< x y)
+                [y (bst-add left x) right]
+                [y left (bst-add right x)]))))
+
+(def bst
+    (partial reduce bst-add nil))

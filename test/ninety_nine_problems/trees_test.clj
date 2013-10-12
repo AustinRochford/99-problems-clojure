@@ -47,3 +47,18 @@
 
 (deftest symmetric?-false-five
     (is (not (symmetric? [:x [:y nil [:z nil nil]] [:a [:b nil nil] nil]]))))
+
+(deftest bst-add-test-empty
+    (is (= [1 nil nil] (bst-add nil 1))))
+
+(deftest bst-add-test-left
+    (is (= [1 [0 nil nil] nil] (bst-add [1 nil nil] 0))))
+
+(deftest bst-add-test-right
+    (is (= [1 nil [2 nil nil]] (bst-add [1 nil nil] 2))))
+
+(deftest bst-add-test-right-left
+    (is (= [1 nil [3 [2 nil nil] nil]] (bst-add [1 nil [3 nil nil]] 2))))
+
+(deftest bst-test
+    (is (= [3 [2 [1 nil nil] nil] [5 nil [7 nil nil]]] (bst '(3 2 5 7 1)))))
