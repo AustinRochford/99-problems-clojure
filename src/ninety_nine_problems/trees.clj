@@ -86,3 +86,14 @@
                     (internals left)
                     (internals right))
                 x))))
+
+(defn at-level
+    [n tree]
+    (if (nil? tree)
+        '()
+        (let [[x left right] tree]
+            (if (= 1 n)
+                `(~x)
+                (concat
+                    (at-level (dec n) left)
+                    (at-level (dec n) right))))))

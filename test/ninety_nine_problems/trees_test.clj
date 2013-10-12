@@ -131,3 +131,30 @@
 
 (deftest internals-test-one-left-right
     (is (= '(1 2) (internals [1 [2 nil [3 nil nil]] nil]))))
+
+(deftest at-level-test-empty
+    (is (= '() (at-level 1 nil))))
+
+(deftest at-level-test-leaf-one
+    (is (= '(1) (at-level 1 [1 nil nil]))))
+
+(deftest at-level-test-leaf-two
+    (is (= '() (at-level 2 [1 nil nil]))))
+
+(deftest at-level-test-left-two
+    (is (= '(2) (at-level 2 [1 [2 nil nil] nil]))))
+
+(deftest at-level-test-right-two
+    (is (= '(2) (at-level 2 [1 nil [2 nil nil]]))))
+
+(deftest at-level-test-three-one
+    (is (= '(1) (at-level 1 [1 [2 nil nil] [3 nil nil]]))))
+
+(deftest at-level-test-three-two
+    (is (= '(2 3) (at-level 2 [1 [2 nil nil] [3 nil nil]]))))
+
+(deftest at-leveltest-right-left-two
+    (is (= '(2) (at-level 2 [1 nil [2 [3 nil nil] nil] nil]))))
+
+(deftest at-leveltest-right-left-three
+    (is (= '(3) (at-level 3 [1 nil [2 [3 nil nil] nil] nil]))))
