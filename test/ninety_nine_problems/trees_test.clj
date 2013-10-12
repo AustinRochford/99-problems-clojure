@@ -62,3 +62,36 @@
 
 (deftest bst-test
     (is (= [3 [2 [1 nil nil] nil] [5 nil [7 nil nil]]] (bst '(3 2 5 7 1)))))
+
+(deftest leaf?-test-empty
+    (is (not (leaf? nil))))
+
+(deftest leaf?-test-leaf
+    (is (leaf? [1 nil nil])))
+
+(deftest leaf?-test-left-child
+    (is (not (leaf? [1 [2 nil nil] nil]))))
+
+(deftest leaf?-test-right-child
+    (is (not (leaf? [1 nil [2 nil nil]]))))
+
+(deftest leaf?-test-two-children
+    (is (not (leaf? [1 [2 nil nil] [3 nil nil]]))))
+
+(deftest count-leaves-test-empty
+    (is (zero? (count-leaves nil))))
+
+(deftest count-leaves-test-leaf
+    (is (= 1 (count-leaves [1 nil nil]))))
+
+(deftest count-leaves-test-one-left
+    (is (= 1 (count-leaves [1 [2 nil nil] nil]))))
+
+(deftest count-leaves-test-one-right
+    (is (= 1 (count-leaves [1 nil [2 nil nil]]))))
+
+(deftest count-leaves-test-three-two
+    (is (= 2 (count-leaves [1 [2 nil nil] [3 nil nil]]))))
+
+(deftest count-leaves-test-one-left-right
+    (is (= 1 (count-leaves [1 [2 nil [3 nil nil]] nil]))))

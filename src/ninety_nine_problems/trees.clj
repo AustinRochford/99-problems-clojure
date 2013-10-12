@@ -44,3 +44,23 @@
 
 (def bst
     (partial reduce bst-add nil))
+
+(defn leaf?
+    [tree]
+    (and
+        (not (nil? tree))
+        (let [[_ left right] tree]
+            (and
+                (nil? left)
+                (nil? right)))))
+
+(defn count-leaves
+    [tree]
+    (if (nil? tree)
+        0
+    (if (leaf? tree)
+        1
+        (let [[_ left right] tree]
+            (+
+                (count-leaves left)
+                (count-leaves right))))))
