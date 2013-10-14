@@ -80,7 +80,7 @@
         (fn [encoded]
             (if (vector? encoded)
                 (apply replicate encoded)
-                (replicate 1 encoded)))))
+                `(~encoded)))))
 
 (def duplicate
     (partial mapcat (partial replicate 2)))
