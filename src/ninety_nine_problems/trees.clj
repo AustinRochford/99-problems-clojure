@@ -3,7 +3,9 @@
         [clojure.contrib.core :refer :all])
     (:gen-class))
 
+; Problem 54A
 (defn tree?
+    "Check wether a given expression is a valid binary tree"
     [tree]
     (or
         (nil? tree)
@@ -11,9 +13,9 @@
             (let [[_ left right] tree]
                 (and (tree? left) (tree? right))))))
 
-; Return to problem 55
-
+; Helpers for Problem 56
 (defn same-tree?
+    "Determine whether or not two trees are the same in terms of shape"
     [tree1 tree2]
     (if (and (nil? tree1) (nil? tree2))
         true
@@ -26,14 +28,18 @@
                 (same-tree? left1 left2)
                 (same-tree? right1 right2))))))
 
+; Problem 56
 (defn symmetric?
+    "Determine whether or not a tree is symmetric"
     [tree]
     (or
         (nil? tree)
         (let [[_ left right] tree]
             (same-tree? left right))))
 
+; Helpers for Problem 57
 (defn bst-add
+    "Add an element to a binary search tree"
     [tree x]
     (if (nil? tree)
         [x nil nil]
@@ -42,10 +48,14 @@
                 [y (bst-add left x) right]
                 [y left (bst-add right x)]))))
 
+; Problem 57
 (def bst
+    "Build a binary search tree from a list of values"
     (partial reduce bst-add nil))
 
+; Helpers for Problem 61
 (defn leaf?
+    "Determine whether or not a tree is a leaf"
     [tree]
     (and
         (not (nil? tree))
@@ -54,7 +64,9 @@
                 (nil? left)
                 (nil? right)))))
 
+; Problem 61
 (defn count-leaves
+    "Count the leaves of a binary tree"
     [tree]
     (if (nil? tree)
         0
@@ -65,7 +77,9 @@
                 (count-leaves left)
                 (count-leaves right))))))
 
+; Problem 61A
 (defn leaves
+    "Collect the leaves of a binary tree in a list"
     [tree]
     (if (nil? tree)
         '()
@@ -76,7 +90,9 @@
                     (leaves left)
                     (leaves right))))))
 
+; Problem 62
 (defn internals
+    "Collect the internal (non-leaf) nodes of a binary tee in a list"
     [tree]
     (if (or (nil? tree) (leaf? tree))
         '()
@@ -87,7 +103,9 @@
                     (internals right))
                 x))))
 
+; Problem 62B
 (defn at-level
+    "Collect the nodes at a given level in a list"
     [n tree]
     (if (nil? tree)
         '()
