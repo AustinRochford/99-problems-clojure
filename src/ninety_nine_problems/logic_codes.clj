@@ -16,10 +16,10 @@
                 (map #(conj % 1) (reverse code))))))
 
 ; Helpers for problem 50
-(defn huffman-step
+(defn merge-trees
     "Merge two trees and add their weights"
     [[fst p1] [snd p2]]
-    [`(nil ~fst ~snd) (+ p1 p2)])
+    [(list nil fst snd) (+ p1 p2)])
 
 (defn pop'
     "Pop n elements from a queue"
@@ -33,7 +33,7 @@
         (peek queue)
         (let [[[fst snd] queue'] (pop' 2 queue)]
             (->>
-                (huffman-step fst snd)
+                (merge-trees fst snd)
                 (conj queue')
                 (recur)))))
 

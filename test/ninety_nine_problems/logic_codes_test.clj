@@ -13,8 +13,8 @@
 (deftest gray-code-test-three
     (is (= '((0 0 0) (0 0 1) (0 1 1) (0 1 0) (1 1 0) (1 1 1) (1 0 1) (1 0 0)) (gray-code 3))))
 
-(deftest huffman-step-test
-    (is (= ['(nil :a :b) 3] (huffman-step [:a 2] [:b 1]))))
+(deftest merge-trees-test
+    (is (= ['(nil :a :b) 3] (merge-trees [:a 2] [:b 1]))))
 
 (deftest pop'-test-two
     (is (= ['([:b 1] [:c 3]) {:a 4 :d 6}] (pop' 2 (priority-map :a 4 :b 1 :c 3 :d 6)))))

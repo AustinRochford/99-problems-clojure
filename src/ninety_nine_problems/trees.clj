@@ -85,7 +85,7 @@
         '()
         (let [[x left right] tree]
             (if (leaf? tree)
-                `(~x)
+                (list x)
                 (concat
                     (leaves left)
                     (leaves right))))))
@@ -97,11 +97,10 @@
     (if (or (nil? tree) (leaf? tree))
         '()
         (let [[x left right] tree]
-            (conj
+            (list* x
                 (concat
                     (internals left)
-                    (internals right))
-                x))))
+                    (internals right))))))
 
 ; Problem 62B
 (defn at-level
@@ -111,7 +110,7 @@
         '()
         (let [[x left right] tree]
             (if (= 1 n)
-                `(~x)
+                (list x)
                 (concat
                     (at-level (dec n) left)
                     (at-level (dec n) right))))))
