@@ -158,3 +158,9 @@
 
 (deftest at-leveltest-right-left-three
     (is (= '(3) (at-level 3 [1 nil [2 [3 nil nil] nil] nil]))))
+
+(deftest preorder-test
+    (is (= '(1 2 3 4) (preorder [1 [2 nil nil] [3 [4 nil nil] nil]]))))
+
+(deftest inorder-test
+    (is (= '(2 1 4 3) (inorder [1 [2 nil nil] [3 [4 nil nil] nil]]))))

@@ -114,3 +114,24 @@
                 (concat
                     (at-level (dec n) left)
                     (at-level (dec n) right))))))
+
+; Problem 68A
+(defn preorder
+    "Preorder traversal of a tree"
+    [tree]
+    (if (nil? tree)
+        '()
+        (let [[x left right] tree]
+            (concat
+                (conj (preorder left) x)
+                (preorder right)))))
+
+(defn inorder
+    "Inorder traversal of a tree"
+    [tree]
+    (if (nil? tree)
+        '()
+        (let [[x left right] tree]
+            (concat
+                (inorder left)
+                (conj (inorder right) x)))))
