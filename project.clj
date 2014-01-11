@@ -5,5 +5,6 @@
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojure-contrib "1.2.0"]
-                 [org.clojure/data.priority-map "0.0.2"]]
+                 [org.clojure/data.priority-map "0.0.2"]
+                 [org.clojure/math.combinatorics "0.0.7"]]
   :main ninety-nine-problems.core)
