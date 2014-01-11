@@ -1,6 +1,7 @@
 (ns ninety-nine-problems.lists
     (:require
-        [clojure.contrib.core :refer :all])
+        [clojure.contrib.core :refer :all]
+        [ninety-nine-problems.core :refer :all])
     (:gen-class))
 
 ; Problem 1
@@ -199,17 +200,6 @@
             with-head (combinations (dec k) tail)
             without-head (combinations k tail)]
             (concat (map #(conj % head) with-head) without-head)))))
-
-; Helpers for Problem 27
-(defn elem?
-    "Determine if x is in coll"
-    [x coll]
-    (some #{x} coll))
-
-(defn diff
-    "Remove all elements of coll' from coll"
-    [coll coll']
-    (filter #(not (elem? % coll')) coll))
 
 ; Problem 27
 (defn group

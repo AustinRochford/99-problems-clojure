@@ -164,3 +164,12 @@
 
 (deftest inorder-test
     (is (= '(2 1 4 3) (inorder [1 [2 nil nil] [3 [4 nil nil] nil]]))))
+
+(deftest tree-from-traversals-test-nil
+    (is (nil? (tree-from-traversals '() '()))))
+
+(deftest tree-from-traversals-test
+    (is (= [1 [2 nil nil] [3 [4 nil nil] nil]] (tree-from-traversals '(1 2 3 4) '(2 1 4 3)))))
+
+(deftest tree-from-traversals-test-two
+    (is (= [1 [2 nil [3 nil nil]] [4 [5 nil nil] nil]] (tree-from-traversals '(1 2 3 4 5) '(2 3 1 5 4)))))

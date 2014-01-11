@@ -1,6 +1,7 @@
 (ns ninety-nine-problems.trees
     (:require
-        [clojure.contrib.core :refer :all])
+        [clojure.contrib.core :refer :all]
+        [ninety-nine-problems.core :refer :all])
     (:gen-class))
 
 ; Problem 54A
@@ -135,3 +136,19 @@
             (concat
                 (inorder left)
                 (conj (inorder right) x)))))
+
+; Problem 68B
+; Note that we assume there are no duplicate entries in the tree
+(defn tree-from-traversals
+    "Reconstruct a tree from its preorder and inorder traversals"
+    [pre in]
+    (if (or (empty? pre) (empty? in))
+        nil
+        (let
+            [[root & pre-tail] pre
+             [in-before [_ & in-after]] (split-with #(not (= % root)) in)
+             pre-before (diff pre-tail in-after)
+             pre-after (diff pre-tail in-before)]
+            [root
+                (tree-from-traversals pre-before in-before)
+                (tree-from-traversals pre-after in-after)])))
