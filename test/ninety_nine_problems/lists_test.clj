@@ -9,6 +9,9 @@
 (deftest last'-test-empty
     (is (nil? (last' '()))))
 
+(deftest last'-test-singleton
+    (is (= 1 (last' '(1)))))
+
 (deftest but-last-test
     (is (= 2 (but-last '(1 2 3)))))
 
